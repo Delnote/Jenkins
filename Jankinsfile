@@ -6,9 +6,9 @@ pipeline {
                 sh "mvn clean"
             }
         }
-        stage('--test--') {
+        stage('--install--') {
             steps {
-                sh "mvn install"
+                sh "mvn clean install"
             }
         }
         stage('--package--') {
