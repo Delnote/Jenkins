@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('---clean---') {
             steps {
+                sh "rm -rf Jenkins"
                 sh "git clone https://github.com/Delnote/Jenkins.git"
                 sh "mvn clean -f Jenkins"
             }
