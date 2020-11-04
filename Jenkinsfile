@@ -4,6 +4,8 @@ pipeline {
     stages {
          stage('--start--') {
             steps {
+                echo "PATH = ${PATH}"
+                echo "M2_HOME = ${M2_HOME}"
                 sh "rm -rf Jenkins"
                 sh "git clone https://github.com/Delnote/Jenkins.git"
                 sh "mvn --version"
