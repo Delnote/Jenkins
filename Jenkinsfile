@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'maven:3.6.3-jdk-8'
-        }
-    }
+    agent any
 
     tools {
             jdk 'Java 8'
@@ -13,6 +9,7 @@ pipeline {
     stages {
          stage('--start--') {
             steps {
+                sudo "apt-get install docker.io"
                 sh "rm -rf Jenkins"
                 sh "git clone https://github.com/Delnote/Jenkins.git"
                 sh "mvn --version"
