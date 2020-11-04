@@ -7,8 +7,8 @@ pipeline {
                 echo "PATH = ${PATH}"
                 sh "rm -rf Jenkins"
                 sh "git clone https://github.com/Delnote/Jenkins.git"
-                sh "${3.6.3}/bin/mvn --version"
-                sh "${3.6.3}/bin/mvn clean -f Jenkins"
+                sh "${maven}/bin/mvn --version"
+                sh "${maven}/bin/mvn clean -f Jenkins"
             }
         }
         stage('--install--') {
