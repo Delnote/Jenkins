@@ -1,0 +1,13 @@
+*.iml
+.idea/
+target/
+*.zip
+*.exe
+.logs/
+*.xlsx
+.allure/
+allure-results/
+*/test-output/
+/src/main/java/com/backoffice/service/dto/*
+/src/main/java/com/sbc/service/dto/*
+src/main/java/com/dto/*

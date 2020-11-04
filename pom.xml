@@ -35,6 +35,12 @@
             <version>4.1.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>4.2.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -76,6 +82,32 @@
                 <configuration>
                     <reportVersion>2.4.1</reportVersion>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jsonschema2pojo</groupId>
+                <artifactId>jsonschema2pojo-maven-plugin</artifactId>
+                <version>1.0.2</version>
+                <configuration>
+                    <sourceDirectory>${basedir}/src/test/resources/schema</sourceDirectory>
+                    <targetPackage>com.dto</targetPackage>
+                    <outputDirectory>${project.build.sourceDirectory}</outputDirectory>
+                    <sourceType>json</sourceType>
+                    <includeGetters>false</includeGetters>
+                    <includeSetters>false</includeSetters>
+                    <serializable>false</serializable>
+                    <parcelable>false</parcelable>
+                    <includeConstructors>true</includeConstructors>
+                    <includeHashcodeAndEquals>false</includeHashcodeAndEquals>
+                    <includeToString>false</includeToString>
+                    <annotationStyle>gson</annotationStyle>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
