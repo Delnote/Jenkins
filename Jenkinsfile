@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-            docker {
-                image 'aven:3.6.3-jdk-8'
-                args '-v $HOME/.m2:/root/.m2'
-            }
-        }
+    agent any
 
     tools {
             jdk 'Java 8'
@@ -14,10 +9,14 @@ pipeline {
     stages {
          stage('--start--') {
             steps {
+                sh "git clone https://github.com/Delnote/Jenkins.git"
+                sh "docker run --rm -v maven:3.6.3-jdk-8 mvn clean -f Jenkins"
+                /*
                 sh "rm -rf Jenkins"
                 sh "git clone https://github.com/Delnote/Jenkins.git"
                 sh "mvn --version"
                 sh "mvn clean -f Jenkins"
+                */
             }
         }
         stage('--install--') {
