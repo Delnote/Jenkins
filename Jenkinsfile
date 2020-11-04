@@ -1,4 +1,4 @@
-node {
+pipeline {
     agent any
 
     def mvn = tool (name: 'maven3', type: 'maven') + '/bin/mvn'
