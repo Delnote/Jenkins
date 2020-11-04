@@ -8,7 +8,6 @@ pipeline {
     tools {
             jdk 'Java 8'
             maven '3.6.3'
-            docker 'docker'
         }
 
     stages {
