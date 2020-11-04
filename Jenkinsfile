@@ -1,8 +1,8 @@
-node {
+pipeline {
     agent any
 
     def mvn = tool (name: '3.6.3', type: 'maven') + '/bin/mvn'
-    
+
     stages {
         stage('---clean---') {
             steps {
