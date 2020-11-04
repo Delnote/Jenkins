@@ -4,6 +4,8 @@ pipeline {
     stages {
         stage('---clean---') {
             steps {
+                echo $M2_HOME
+                echo $PATH
                 sh "rm -rf Jenkins"
                 sh "git clone https://github.com/Delnote/Jenkins.git"
                 sh "mvn clean -f Jenkins"
