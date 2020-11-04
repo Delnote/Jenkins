@@ -1,13 +1,10 @@
 pipeline {
-    agent {
-        docker {
-            image "maven:3.6.3-jdk-8"
-        }
-    }
+    agent any
 
     stages {
          stage('--start--') {
             steps {
+                sh "docker run -d -p 8080:8080 -p 50000:50000 \ -v /var/run/docker.sock:/var/run/docker.sock \ -v /usr/bin/docker:/usr/bin/docker Jenkins/Jenkins:lts"
                 sh "rm -rf Jenkins"
                 sh "git clone https://github.com/Delnote/Jenkins.git"
                 sh "mvn --version"
