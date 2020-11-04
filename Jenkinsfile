@@ -1,14 +1,9 @@
 pipeline {
-    agent {
-        docker {
-            image "maven:3.6.3-jdk-8"
-        }
-    }
+    agent any
 
     stages {
         stage('---clean---') {
             steps {
-                sh "maven --version"
                 sh "rm -rf Jenkins"
                 sh "git clone https://github.com/Delnote/Jenkins.git"
                 sh "mvn clean -f Jenkins"
