@@ -3,8 +3,8 @@ pipeline {
 
     stages {
         stage('---clean---') {
+        def mvn = tool (name: '3.6.3', type: 'maven') + '/bin/mvn'
             steps {
-                sh def mvn = tool name: '3.6.3', type: 'maven') + '/bin/mvn'
                 sh "rm -rf Jenkins"
                 sh "git clone https://github.com/Delnote/Jenkins.git"
                 sh "${mvn}/bin/mvn --version"
