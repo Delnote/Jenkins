@@ -1,7 +1,9 @@
 pipeline {
     agent any
-    tools {
-        maven "3.6.3"
+
+    docker {
+        image "maven"
+        label "docker"
     }
 
     stages {
