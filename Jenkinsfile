@@ -1,15 +1,15 @@
-pipeline {
+node {
     agent any
 
-    def mvn = tool (name: 'maven3', type: 'maven') + '/bin/mvn'
-
+    def mvn = tool (name: '3.6.3', type: 'maven') + '/bin/mvn'
+    
     stages {
         stage('---clean---') {
             steps {
                 sh "rm -rf Jenkins"
                 sh "git clone https://github.com/Delnote/Jenkins.git"
-                sh "${mvn} --version"
-                sh "${mvn} clean -f Jenkins"
+                sh "${mvn}/bin/mvn --version"
+                sh "${mvn}/bin/mvn clean -f Jenkins"
             }
         }
         stage('--install--') {
