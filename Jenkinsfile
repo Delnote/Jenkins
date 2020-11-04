@@ -2,11 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('build'){
-                withMaven(maven: 'mvn') {
-                    sh "mvn clean package"
-                }
-            }
         stage('---clean---') {
             steps {
                 sh "rm -rf Jenkins"
